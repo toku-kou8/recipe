@@ -1,0 +1,2 @@
+class MenuDetail < ApplicationRecord
+end
