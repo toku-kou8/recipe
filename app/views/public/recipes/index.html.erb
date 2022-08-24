@@ -1,0 +1,22 @@
+<%= render 'public/shared/header' %>
+<div>
+  <div>
+    <h3>レシピ：</h3>
+  </div>
+</div>
+<div>
+  <ul>
+    <% @recipes.each do |recipe| %>
+    <li>
+      <div>
+        画像
+      </div>
+      <div>
+        <%= recipe.name %>
+        <%= recipe.genre_id %>
+      </div>
+    </li>
+    <% end %>
+  </ul>
+
+</div>
