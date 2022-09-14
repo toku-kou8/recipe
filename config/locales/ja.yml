@@ -9,3 +9,8 @@ ja:
         employee: 会社員
         student: 学生
         part: パート・アルバイト
+    menu:
+      authority:
+        allcustomer: すべての人に公開
+        follow: フォロワーのみに公開
+        me: 自分のみに公開

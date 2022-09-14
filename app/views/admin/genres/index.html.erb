@@ -1,0 +1,34 @@
+<%= render 'admin/shared/header' %>
+<div class='contaier'>
+  <div class='row'>
+    <div class='col-md-4 offset-md-1'>
+        <h4>新規登録</h4>
+        <%= form_with model: @genre, url: genres_path do |f| %>
+        <h4>ジャンル名</h4>
+        <%= f.text_field :name, class:'field' %>
+        <div>
+          <%= f.submit class: 'btn btn-success field' %>
+        </div>
+        <% end %>
+      </div>
+    <div class='col-md-5 offset-md-'>
+      <table class='table table-hover table-inverse'>
+        <thead>
+          <tr>
+            <th>ジャンル名</th>
+            <th colspan="2"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @genres.each do |genre| %>
+          <tr>
+            <th><%= genre.name %></th>
+            <th><%= link_to "削除", genre_path(genre.id), method: :delete, data: {confirm: '本当に消しますか？'}, class:'btn btn-danger' %> </th>
+            <th><%= link_to "編集", edit_genre_path(genre.id), class:'btn btn-success' %> </th>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
