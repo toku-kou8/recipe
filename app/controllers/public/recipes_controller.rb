@@ -24,7 +24,7 @@ class Public::RecipesController < ApplicationController
   def create
   end
 
-  privete
+  private
 
   def recipe_params
     params.require(:menu).permit(:name, :difficulty,:price, :time, :number, :genre_id, :impression, :calorie, :way,:authority)

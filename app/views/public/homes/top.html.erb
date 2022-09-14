@@ -1,2 +1,130 @@
 <%= render 'public/shared/header' %>
-<h2>レシピサイト</h2>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <%= render 'public/shared/left' %>
+    </div>
+    <div class='col-md-5'>
+      <%= render 'public/shared/mid' %>
+    </div>
+    <div class='col-md-4'>
+      <%= render 'public/shared/right' %>
+    </div>
+  </div>
+  <div class='flex'>
+    <div class='access-ranking'>
+
+      <h5 class='section-title'>デイリーアクセスランキング</h5>
+      <div class='flex'>
+        <div class='ranking-1 white'>
+        1位
+        </div>
+        <div>
+          <div class='ranking-23 white'>
+            2位
+          </div>
+          <div class='ranking-23 white'>
+            3位
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='hot-recipes'>
+      <h5 class='section-title'>話題のレシピ</h5>
+      <div>
+        <ul class='flex'>
+          <li class='hot-recipe'>
+            <%= link_to "title" %>
+          </li>
+          <li class='hot-recipe'>
+            <%= link_to "title" %>
+          </li>
+          <li class='hot-recipe'>
+            <%= link_to "title" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class=''>
+    <h5>レシピカテゴリー</h5>
+    <div class='flex row col-md-8'>
+      <ul class='category'>
+        <li><%= link_to '野菜のおかず', recipes_path %></li>
+        <ul>
+          <li><%= link_to 'なす', recipes_path %></li>
+          <li><%= link_to '人参', recipes_path %></li>
+          <li><%= link_to 'トマト', recipes_path %></li>
+        </ul>
+      </ul>
+      <ul class='category'>
+        <li><%= link_to 'お肉のおかず', recipes_path %></li>
+        <ul>
+          <li><%= link_to '豚', recipes_path %></li>
+          <li><%= link_to '牛', recipes_path %></li>
+          <li><%= link_to '鳥', recipes_path %></li>
+        </ul>
+      </ul>
+      <ul class='category'>
+        <li><%= link_to '魚のおかず', recipes_path %></li>
+        <ul>
+          <li><%= link_to 'さけ', recipes_path %></li>
+          <li><%= link_to 'さば', recipes_path %></li>
+          <li><%= link_to 'エビ', recipes_path %></li>
+        </ul>
+      </ul>
+      <ul class='category'>
+        <li><%= link_to 'めん', recipes_path %></li>
+        <ul>
+          <li><%= link_to 'なす', recipes_path %></li>
+          <li><%= link_to '人参', recipes_path %></li>
+          <li><%= link_to 'トマト', recipes_path %></li>
+        </ul>
+      </ul>
+      <ul class='category'>
+        <li><%= link_to 'パスタ', recipes_path %></li>
+        <ul>
+          <li><%= link_to '豚', recipes_path %></li>
+          <li><%= link_to '牛', recipes_path %></li>
+          <li><%= link_to '鳥', recipes_path %></li>
+        </ul>
+      </ul>
+      <ul class='category'>
+        <li><%= link_to 'サラダ', recipes_path %></li>
+        <ul>
+          <li><%= link_to 'さけ', recipes_path %></li>
+          <li><%= link_to 'さば', recipes_path %></li>
+          <li><%= link_to 'エビ', recipes_path %></li>
+        </ul>
+      </ul>
+      <ul class='category'>
+        <li><%= link_to 'スープ・汁物', recipes_path %></li>
+        <ul>
+          <li><%= link_to 'なす', recipes_path %></li>
+          <li><%= link_to '人参', recipes_path %></li>
+          <li><%= link_to 'トマト', recipes_path %></li>
+        </ul>
+      </ul>
+      <ul class='category'>
+        <li><%= link_to 'お弁当', recipes_path %></li>
+        <ul>
+          <li><%= link_to '豚', recipes_path %></li>
+          <li><%= link_to '牛', recipes_path %></li>
+          <li><%= link_to '鳥', recipes_path %></li>
+        </ul>
+      </ul>
+      <ul class='category'>
+        <li><%= link_to 'お菓子', recipes_path %></li>
+        <ul>
+          <li><%= link_to 'さけ', recipes_path %></li>
+          <li><%= link_to 'さば', recipes_path %></li>
+          <li><%= link_to 'エビ', recipes_path %></li>
+        </ul>
+      </ul>
+    </div>
+    <div class='col-md-4'>
+      <%= render 'public/shared/right' %>
+    </div>
+  </div>
+</div>
+<%= render 'public/shared/footer' %>

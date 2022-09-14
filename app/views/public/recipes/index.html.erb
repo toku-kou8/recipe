@@ -1,7 +1,7 @@
 <%= render 'public/shared/header' %>
 <div>
   <div>
-    <h3>レシピ：</h3>
+    <h3>レシピ一覧</h3>
   </div>
 </div>
 <div>
@@ -13,7 +13,13 @@
       </div>
       <div>
         <%= recipe.name %>
+        <%= recipe.difficulty %>
+        <%= recipe.price %>
+        <%= recipe.time %>
+        <%= recipe.impression %>
+        <%= recipe.number %>
         <%= recipe.genre_id %>
+        <%= recipe.calorie %>
       </div>
     </li>
     <% end %>

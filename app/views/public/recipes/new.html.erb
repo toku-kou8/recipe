@@ -1,0 +1,20 @@
+<%= render 'public/shared/header' %>
+<div class = 'container'>
+  <div class = 'row'>
+    <div class = 'col-sm-8'>
+      <%= form_with model: @recipe , url: recipes_path do |f| %>
+      <h4>料理名</h4>
+        <%= f.text_field :name %>
+       <h4>何人前</h4>
+        <%= f.number_field :number,in: 1..10, step: 1 %>
+      <h4>感想</h4>
+        <%= f.text_area :impression, size: '60x5' %>
+      <h4>画像</h4>
+        <%= f.file_field :image, accept: "image/*" %></br></br>
+        <%= f.select :,:name,Battle.statuses.keys.to_a %>
+        <%= f.submit '投稿', class: 'btn btn-success' %>
+
+      <% end %>
+    </div>
+  </div>
+</div>
