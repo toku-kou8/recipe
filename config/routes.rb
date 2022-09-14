@@ -10,8 +10,9 @@ Rails.application.routes.draw do
     registrations: 'admin/registrations'
   }
   root to: 'public/homes#top'
-  scope module: public {
-    resources :recipe
-  }
+  
+  scope module: :public do
+    resources :recipes
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

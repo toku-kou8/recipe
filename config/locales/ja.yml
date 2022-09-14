@@ -1,0 +1,11 @@
+ja:
+  enums:
+    customer:
+      sex:
+        man: 男
+        wemen: 女
+      profession:
+        wife: 主婦
+        employee: 会社員
+        student: 学生
+        part: パート・アルバイト
