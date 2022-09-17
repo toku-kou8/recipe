@@ -1,0 +1,67 @@
+<%= render 'public/shared/header' %>
+<div class='errors'>
+    <% if @recipe.errors.any? %>
+      <%= @recipe.errors.count %>errors prohibited this obj from being saved
+      <%= @recipe.errors.full_messages.each do |message| %>
+        <%= message %>
+      <% end %>
+    <% end %>
+  </div>
+<div class = 'container'>
+  <div class = 'row'>
+    <div class = 'col-md-6'>
+      <%= form_with model: @recipe , url: recipes_path do |f| %>
+      <h4>料理名</h4>
+        <%= f.text_field :name %>
+      <h4>ジャンル</h4>
+        <%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: "ジャンルを選択してください" %>
+        <div class='flex'>
+          <div class='flex field'>
+            <h4>何人前</h4>
+            <%= f.number_field :number,in: 1..10, step: 1 %>
+          </div>
+          <div class='flex field'>
+            <h4>料理時間</h4>
+            <%= f.number_field :number,in: 1..120, step: 1 %>分
+          </div>
+        </div>
+      <div class="field" id="star">
+        <%= f.label :difficulty, "むずかしさ：" %>
+        <%= f.hidden_field :difficulty, id: :review_star %>
+      </div>
+        <script>
+          $('#star').raty({
+            size     : 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            scoreName: 'menu[difficulty]',
+            half: true,
+          });
+        </script>
+      <h4>作り方</h4>
+        <%= f.text_area :way, size: '60x3' %>
+      <h4>感想</h4>
+        <%= f.text_area :impression, size: '60x3' %>
+      <h4>画像</h4>
+        <%= f.file_field :image, accept: "image/*" %></br></br>
+      <div class="field">
+        <% Menu.authorities.each do |d| %>
+        <%= f.label t("enums.menu.authority.#{d[0]}") %>
+        <%= f.radio_button :authority, d[0] %></br>
+        <% end %>
+      </div>
+    </div>
+    <div class='col-md-6', id="ingredients">
+      <%= link_to_add_association '材料の追加', f, :menu_details,
+       data: { association_insertion_method: 'append' }, class: 'btn btn-success' %>
+      <%= f.fields_for :menu_details do |menu_detail| %>]
+       <%# ファイル名はingredient_fieldsにしてください %>
+      <%= render "recipes/menu_detail_fields", f: menu_detail %>
+      <% end %>
+    </div>
+  </div>
+  <%= f.submit '投稿', class: 'btn btn-success field' %>
+  <% end %>
+</div>
+<%= render 'public/shared/footer' %>

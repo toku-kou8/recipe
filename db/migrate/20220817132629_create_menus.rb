@@ -3,11 +3,12 @@ class CreateMenus < ActiveRecord::Migration[6.1]
     create_table :menus do |t|
       t.integer :customer_id, null: false
       t.string :name, null: false
-      t.integer :difficulty
+      t.float :difficulty, null: false
       t.integer :price
       t.integer :time
       t.integer :number, null: false
       t.integer :genre_id, null: false
+      t.integer :profession, null: false
       t.string :impression
       t.integer :calorie
       t.string :way, null: false

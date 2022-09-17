@@ -1,0 +1,35 @@
+<%= render 'public/shared/header' %>
+<div>
+  <div class='row col-md-3 offset-md-4'>
+    <h3>レシピ一覧</h3>
+  </div>
+  <div class='row'>
+    <div class='col-md-3 offset-md-1'>
+      <%= render 'public/shared/left' %>
+    </div>
+    <div class='col-md-6'>
+      <ul>
+        <% @recipes.each do |recipe| %>
+        <li class='flex'>
+          <div class='image'>
+            <%= image_tag recipe.get_image(100,100) %>
+          </div>
+          <div>
+            <div>
+              <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
+            </div>
+            <div>
+              <%= recipe.impression %></br>
+              <%= recipe.customer.name %>
+            </div>
+            <div>
+              ジャンル:　<%= recipe.genre.name %>
+            </div>
+          </div>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+<%= render 'public/shared/footer' %>

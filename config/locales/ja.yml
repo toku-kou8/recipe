@@ -1,0 +1,16 @@
+ja:
+  enums:
+    customer:
+      sex:
+        man: 男
+        wemen: 女
+      profession:
+        wife: 主婦
+        employee: 会社員
+        student: 学生
+        part: パート・アルバイト
+    menu:
+      authority:
+        allcustomer: すべての人に公開
+        follow: フォロワーのみに公開
+        me: 自分のみに公開
