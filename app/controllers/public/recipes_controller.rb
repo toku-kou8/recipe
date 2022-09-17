@@ -25,13 +25,6 @@ class Public::RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Menu.new(recipe_params)
-    @recipe.customer_id = current_customer.id
-    if @recipe.save
-      redirect_to recipe_path(@recipe)
-    else
-      render :new
-    end
   end
 
   private
