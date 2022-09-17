@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 2022_09_14_112102) do
     t.integer "time"
     t.integer "number", null: false
     t.integer "genre_id", null: false
+    t.integer "profession", null: false
     t.string "impression"
     t.integer "calorie"
     t.string "way", null: false

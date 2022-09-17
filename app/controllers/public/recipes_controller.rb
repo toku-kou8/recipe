@@ -1,6 +1,9 @@
 class Public::RecipesController < ApplicationController
   def index
     @recipes = Menu.all
+    if params[:search]
+      @recipes.where!(profession: params[:search])
+    end
     @user = current_customer
   end
 

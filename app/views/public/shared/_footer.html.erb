@@ -4,29 +4,50 @@
       <div class='footer-section'>
         <h3>レシピを探す</h3>
         <ul>
-          <li><%= link_to "学生向けレシピ" %></li>
-          <li><%= link_to "人気なレシピ" %></li>
-          <li><%= link_to "自分のレシピ" %></li>
-          <li><%= link_to "新着レシピ" %></li>
-          <li><%= link_to "デイリー数ランキング" %></li>
+          <li>
+            <%= form_tag recipes_path, method: :get do %>
+              <!-- hiddenタグに送信したいパラメータを含める -->
+              <%= hidden_field_tag :search, 2 %>
+              <%= button_tag '学生向けレシピ', class: 'btn' %>
+            <% end %>
+          </li>
+          <li><%= link_to "人気なレシピ", class: 'btn' %></li>
+          <% if current_customer %>
+          <li>
+            <%= link_to "自分のレシピ", customer_path(current_customer), class: 'btn' %>
+          </li>
+          <% end %>
+          <li><%= link_to "新着レシピ", class:'btn' %></li>
+          <li><%= link_to "デイリー数ランキング", class: 'btn' %></li>
         </ul>
       </div>
       <div class='footer-section'>
         <h3>レシピを書く</h3>
         <ul>
-          <li><%= link_to "レシピを書く", new_recipe_path %></li>
+          <li><%= link_to "レシピを書く", new_recipe_path , class: 'btn'%></li>
         </ul>
         <h3>献立</h3>
         <ul>
-          <li><%= link_to "みんなの献立" %></li>
-          <li><%= link_to "学生の献立" %></li>
+          <li><%= link_to "みんなの献立", class: 'btn' %></li>
+          <li><%= link_to "学生の献立", class: 'btn' %></li>
         </ul>
       </div>
       <div class='footer-section'>
         <h3>おすすめ</h3>
         <ul>
-          <li><%= link_to "学生向けレシピ" %></li>
-          <li><%= link_to "一人暮らし向けレシピ"%></li>
+          <li>
+            <%= form_tag recipes_path, method: :get do %>
+              <!-- hiddenタグに送信したいパラメータを含める -->
+              <%= hidden_field_tag :search, 2 %>
+              <%= button_tag '学生向けレシピ', class: 'btn' %>
+            <% end %></li>
+          <li>
+            <%= form_tag recipes_path, method: :get do %>
+              <!-- hiddenタグに送信したいパラメータを含める -->
+              <%= hidden_field_tag :search, 3 %>
+              <%= button_tag '一人暮らし向けレシピ', class: 'btn' %>
+            <% end %>
+          </li>
         </ul>
       </div>
     </div>
