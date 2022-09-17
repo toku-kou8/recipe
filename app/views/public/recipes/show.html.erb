@@ -6,9 +6,9 @@
   <div></div>
 </div>
 <div>
-  <div>
-    <div>
-      画像
+  <div class='row'>
+    <div  class='col-md-3 offset-md-2'>
+      <%= image_tag @recipe.get_image(500, 500) %>
     </div>
     <div>
       何人前、ジャンル、カロリー、時間、難しさ、誰に見せるか
@@ -21,6 +21,14 @@
   </div>
   <div>
     材料
+    <table class='table table-hover table-inverse'>
+      <% @recipe.menu_details.all.each do |detail| %>
+        <tr>
+          <td><%= detail.name %></td>
+          <td><%= detail.amount %></td>
+        </tr>
+        <% end %>
+      </table>
   </div>
   <div>
     方法
@@ -29,3 +37,4 @@
 <div>
 
 </div>
+<%= render 'public/shared/footer' %>

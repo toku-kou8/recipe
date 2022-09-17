@@ -1,0 +1,50 @@
+<%= render 'public/shared/header' %>
+<div class='main'>
+  <div class='row col-md-3 offset-md-4'>
+    <h3>ユーザー</h3>
+  </div>
+  <div class='row'>
+    <div class='col-md-3 offset-md-1'>
+      <%= render 'public/shared/left' %>
+      <h5>ユーザー情報</h5>
+      <table class='table table-hover table-inverse'>
+        <tr>
+          <td>名前</td>
+          <td><%= @customer.name %></td>
+        </tr>
+        <tr>
+          <td>職業</td>
+          <td><%= @customer.profession_i18n %></td>
+        </tr>
+        <tr>
+          <td>年齢</td>
+          <td><%= @customer.age %></td>
+        </tr>
+      </table>
+    </div>
+    <div class='col-md-6'>
+      <ul>
+        <% @recipes.each do |recipe| %>
+        <li class='flex'>
+          <div class='image'>
+            <%= image_tag recipe.get_image(100,100) %>
+          </div>
+          <div>
+            <div>
+              <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
+            </div>
+            <div>
+              <%= recipe.impression %></br>
+              <%= recipe.customer.name %>
+            </div>
+            <div>
+              ジャンル:　<%= recipe.genre.name %>
+            </div>
+          </div>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+<%= render 'public/shared/footer' %>
