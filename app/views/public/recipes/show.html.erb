@@ -1,6 +1,6 @@
 <%= render 'public/shared/header' %>
-<div>
-  <div>
+<div class='container'>
+  <div class='row col-md-8 offset-md-3'>
     <h3>レシピ：<%= @recipe.name %></h3>
   </div>
   <div></div>
@@ -8,33 +8,56 @@
 <div>
   <div class='row'>
     <div  class='col-md-3 offset-md-2'>
-      <%= image_tag @recipe.get_image(500, 500) %>
+      画像
     </div>
-    <div>
-      何人前、ジャンル、カロリー、時間、難しさ、誰に見せるか
+    <div class='col-md-5'>
+      <table class='table table-hover table-inverse'>
+        <tr>
+          <td>何人前</td>
+          <td><%= @recipe.number %>人前</td>
+        </tr>
+        <tr>
+          <td>ジャンル</td>
+          <td><%= @recipe.genre.name %></td>
+        </tr>
+        <tr>
+          <td>カロリー</td>
+          <td><%= @recipe.calorie %></td>
+        </tr>
+        <tr>
+          <td>時間</td>
+          <td><%= @recipe.time %></td>
+        </tr>
+        <tr>
+          <td>むずかしさ</td>
+          <td>
+            <span id="star-rate"></span>
+            <script>
+              $('#star-rate').raty({
+                size: 36,
+                starOff: "<%= asset_path('star-off.png') %>",
+                starOn: "<%= asset_path('star-on.png') %>",
+                starHalf: "<%= asset_path('star-half.png') %>",
+                half: true,
+                readOnly: true,
+                score: <%= @recipe.difficulty %>,
+              });
+            </script>
+            <%= @recipe.difficulty %>
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
 </div>
-<div>
-  <div>
-    <h3><%= @recipe.name %></h3>
-  </div>
-  <div>
+<div class='row'>
+  <div class='col-md-5 offset-md-2'>
     材料
-    <table class='table table-hover table-inverse'>
-      <% @recipe.menu_details.all.each do |detail| %>
-        <tr>
-          <td><%= detail.name %></td>
-          <td><%= detail.amount %></td>
-        </tr>
-        <% end %>
-      </table>
   </div>
-  <div>
-    方法
+  <div class='col-md-5'>
+    <h5>方法:</h5><%= @recipe.way %>
   </div>
 </div>
 <div>
 
 </div>
-<%= render 'public/shared/footer' %>
