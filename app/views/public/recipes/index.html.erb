@@ -25,10 +25,21 @@
             <div>
               ジャンル:　<%= recipe.genre.name %>
             </div>
+            <div>
+              <%= render "recipes/tag_list", tag_list: recipe.tag_list %>
+            </div>
           </div>
         </li>
         <% end %>
       </ul>
+    </div>
+    <div class='col-md-3'>
+      <% if @tags.present? %>
+      <% @tags.each do |tag| %>
+      <%= link_to tag, "#{tag.name}(#{tag.taggings_count})", recipes_path(tag_name: tag) %>
+      <% else %>
+      タグはありません
+      <% end %>
     </div>
   </div>
 </div>

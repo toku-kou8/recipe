@@ -1,14 +1,16 @@
 class Public::RecipesController < ApplicationController
   def index
     @recipes = Menu.all
-    if params[:search]
-      @recipes.where!(profession: params[:search])
+    if params[:tag_name]
+      @recipes = Menu.tagged_with("#{params[:tag_name]}")
     end
+    @tags = @recipes.tag_counts_on(:tags).most_used(20)
     @user = current_customer
   end
 
   def show
     @recipe = Menu.find(params[:id])
+    @tags = @recipe.tag_counts_on(:tags)
     @user = current_customer
   end
 
@@ -37,6 +39,6 @@ class Public::RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:menu).permit(:name, :difficulty,:price, :time, :number, :genre_id, :impression, :calorie, :way,:authority)
+    params.require(:menu).permit(:name, :difficulty,:price, :time, :number, :genre_id, :impression, :calorie, :way,:authority,:tag_list)
   end
 end

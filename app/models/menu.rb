@@ -3,6 +3,9 @@ class Menu < ApplicationRecord
   belongs_to :customer
   belongs_to :genre
   has_many :menu_details, dependent: :destroy
+
+  acts_as_taggable #acts_as_taggable_on :tags の省略
+  # acts_as_taggable_on :tags
   validates :difficulty, numericality: {
     less_than_or_equal_to: 5,
     greater_than_or_equal_to: 1
