@@ -1,6 +1,6 @@
 <%= render 'public/shared/header' %>
 <div class='row col-md-6 offset-md-6'>
-    <h3>レシピ検索</h3>
+    <h3>レシピ検索</h3> <br>
     <%= search_form_for @q, url: search_recipes_path do |f| %>
       <%= f.label :name_cont, 'レシピ名,作成者' %>
       <%= f.search_field :name_or_customer_name_cont %>
@@ -13,8 +13,8 @@
       <%= f.submit '検索', class: "btn btn-primary" %>
     <% end %>
 </div>
-  <div class='row col-md-3 offset-md-4'>
-    <h3>レシピ一覧</h3>
+  <div class='row col-md-6 offset-md-4'>
+    <h3><%= params[:q].values.join() %>に関するレシピ</h3>
   </div>
   <div class='row'>
     <div class='col-md-3 offset-md-1'>
@@ -22,7 +22,7 @@
     </div>
     <div class='col-md-6'>
       <ul>
-        <% @recipes.each do |recipe| %>
+        <% @results.each do |recipe| %>
         <li class='flex'>
           <div class='image'>
             <%= image_tag recipe.get_image(100,100) %>

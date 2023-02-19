@@ -66,6 +66,8 @@ group :production do
   gem 'mysql2'
 end
 
+gem 'ransack'
+gem 'acts-as-taggable-on', '~> 9.0'
 gem "net-smtp"
 gem "net-pop"
 gem "net-imap"

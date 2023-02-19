@@ -19,4 +19,13 @@ class Menu < ApplicationRecord
     end
     image.variant(resize_to_limit: [width, height]).processed
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["authority", "calorie", "created_at", "customer_id", "difficulty",
+    "genre_id", "id", "impression", "name", "number", "price", "profession",
+    "time", "updated_at", "way"]
+  end
+  def self.ransackable_associations(auth_object = nil)
+    ["customer", "genre", "image_attachment", "image_blob", "menu_details"]
+  end
 end
