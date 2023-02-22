@@ -6,6 +6,7 @@ class Menu < ApplicationRecord
 
   acts_as_taggable #acts_as_taggable_on :tags の省略
   # acts_as_taggable_on :tags
+  # scope :by_join_date, order("created_at DESC")
   validates :difficulty, numericality: {
     less_than_or_equal_to: 5,
     greater_than_or_equal_to: 1

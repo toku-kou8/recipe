@@ -15,7 +15,15 @@ import "../stylesheets/application"
 import "@nathanvda/cocoon"
 window.$ = window.jQuery = require('jquery');
 require('packs/raty')
-
+require('packs/tag-it')
+require('packs/tag-it-min')
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+/*global $*/
+$(".slide-items").slick({
+    autoplay: true, // 自動再生
+    fade: true, // スライドをフェードイン・フェードアウト
+    cssEase: 'linear',// アニメーション
+    speed: 600, // フェードアニメーションの速度設定
+});

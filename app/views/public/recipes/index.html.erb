@@ -37,6 +37,7 @@
       <% if @tags.present? %>
       <% @tags.each do |tag| %>
       <%= link_to tag, "#{tag.name}(#{tag.taggings_count})", recipes_path(tag_name: tag) %>
+      <% end %>
       <% else %>
       タグはありません
       <% end %>
