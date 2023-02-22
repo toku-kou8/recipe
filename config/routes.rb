@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   root to: 'public/homes#top'
 
   scope module: :public do
-    resources :recipes
+    resources :recipes do
+      collection do
+        get 'search'
+      end
+    end
     resources :customers, only: [:show]
   end
 
