@@ -1,4 +1,6 @@
 class Public::RecipesController < ApplicationController
+  before_action :set_q, only: [:index, :search]
+
   def index
     @recipes = Menu.all
     if params[:tag_name]
@@ -36,7 +38,15 @@ class Public::RecipesController < ApplicationController
     end
   end
 
+  def search
+    @results = @q.result
+  end
+
   private
+
+  def set_q
+    @q = Menu.ransack(params[:q])
+  end
 
   def recipe_params
     params.require(:menu).permit(:name, :difficulty,:price, :time, :number, :genre_id, :impression, :calorie, :way,:authority,:tag_list)
